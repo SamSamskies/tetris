@@ -22,22 +22,18 @@ describe Tetris do
 
   context "moving pieces" do
 
-    before(:each) do
-      @piece = @game.random_piece
-    end
-
     describe "#move_left!" do
 
       it "moves the piece to the left" do
-        @game.move_left! @piece
-        @piece.cells[0].row.should eq Square::START_ROW
-        @piece.cells[1].row.should eq Square::START_ROW
-        @piece.cells[2].row.should eq Square::START_ROW + 1
-        @piece.cells[3].row.should eq Square::START_ROW + 1
-        @piece.cells[0].col.should eq Square::START_COL - 1
-        @piece.cells[1].col.should eq Square::START_COL
-        @piece.cells[2].col.should eq Square::START_COL - 1
-        @piece.cells[3].col.should eq Square::START_COL
+        @game.move_left!
+        @game.instance_variable_get(:@current_piece).cells[0].row.should eq Square::START_ROW
+        @game.instance_variable_get(:@current_piece).cells[1].row.should eq Square::START_ROW
+        @game.instance_variable_get(:@current_piece).cells[2].row.should eq Square::START_ROW + 1
+        @game.instance_variable_get(:@current_piece).cells[3].row.should eq Square::START_ROW + 1
+        @game.instance_variable_get(:@current_piece).cells[0].col.should eq Square::START_COL - 1
+        @game.instance_variable_get(:@current_piece).cells[1].col.should eq Square::START_COL
+        @game.instance_variable_get(:@current_piece).cells[2].col.should eq Square::START_COL - 1
+        @game.instance_variable_get(:@current_piece).cells[3].col.should eq Square::START_COL
       end
 
     end
@@ -45,15 +41,15 @@ describe Tetris do
     describe "#move_right!" do
 
       it "moves the piece to the right" do
-        @game.move_right! @piece
-        @piece.cells[0].row.should eq Square::START_ROW
-        @piece.cells[1].row.should eq Square::START_ROW
-        @piece.cells[2].row.should eq Square::START_ROW + 1
-        @piece.cells[3].row.should eq Square::START_ROW + 1
-        @piece.cells[0].col.should eq Square::START_COL + 1
-        @piece.cells[1].col.should eq Square::START_COL + 2
-        @piece.cells[2].col.should eq Square::START_COL + 1
-        @piece.cells[3].col.should eq Square::START_COL + 2
+        @game.move_right!
+        @game.instance_variable_get(:@current_piece).cells[0].row.should eq Square::START_ROW
+        @game.instance_variable_get(:@current_piece).cells[1].row.should eq Square::START_ROW
+        @game.instance_variable_get(:@current_piece).cells[2].row.should eq Square::START_ROW + 1
+        @game.instance_variable_get(:@current_piece).cells[3].row.should eq Square::START_ROW + 1
+        @game.instance_variable_get(:@current_piece).cells[0].col.should eq Square::START_COL + 1
+        @game.instance_variable_get(:@current_piece).cells[1].col.should eq Square::START_COL + 2
+        @game.instance_variable_get(:@current_piece).cells[2].col.should eq Square::START_COL + 1
+        @game.instance_variable_get(:@current_piece).cells[3].col.should eq Square::START_COL + 2
       end
 
     end
@@ -61,19 +57,19 @@ describe Tetris do
     describe "#drop!" do
 
       it "drops the piece into place and updates Playfield accordingly" do
-        @game.drop! @piece
+        @game.drop!
         @playfield.cells[4].is_empty?.should eq false
         @playfield.cells[5].is_empty?.should eq false
         @playfield.cells[14].is_empty?.should eq false
         @playfield.cells[15].is_empty?.should eq false
 
-        @game.drop! @game.random_piece
+        @game.drop!
         @playfield.cells[24].is_empty?.should eq false
         @playfield.cells[25].is_empty?.should eq false
         @playfield.cells[34].is_empty?.should eq false
         @playfield.cells[35].is_empty?.should eq false
 
-        @game.drop! @game.random_piece
+        @game.drop!
         @playfield.cells[44].is_empty?.should eq false
         @playfield.cells[45].is_empty?.should eq false
         @playfield.cells[54].is_empty?.should eq false
@@ -85,18 +81,15 @@ describe Tetris do
     describe "#first_available_row" do
 
       it "returns the first available row" do
-        @game.first_available_row(@piece).should eq 0
-        @game.drop! @piece
-        @game.first_available_row(@piece).should eq 2
-
-        new_piece = @game.random_piece
+        @game.first_available_row.should eq 0
+        @game.drop!
+        @game.first_available_row.should eq 2
 
         20.times do
-          @game.drop! new_piece
-          new_piece = @game.random_piece
+          @game.drop!
         end
 
-        @game.first_available_row(new_piece).should eq 22
+        @game.first_available_row.should eq 22
       end
 
     end
