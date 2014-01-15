@@ -17,10 +17,10 @@ describe Square do
     end
 
     it "has cells with the correct column coordinates" do
-      @cells[0].instance_variable_get(:@column).should eq Square::START_COL
-      @cells[1].instance_variable_get(:@column).should eq Square::START_COL + 1
-      @cells[2].instance_variable_get(:@column).should eq Square::START_COL
-      @cells[3].instance_variable_get(:@column).should eq Square::START_COL + 1
+      @cells[0].instance_variable_get(:@col).should eq Square::START_COL
+      @cells[1].instance_variable_get(:@col).should eq Square::START_COL + 1
+      @cells[2].instance_variable_get(:@col).should eq Square::START_COL
+      @cells[3].instance_variable_get(:@col).should eq Square::START_COL + 1
     end
 
   end
@@ -28,21 +28,16 @@ describe Square do
   describe "#update_cells" do
 
     it "updates the cells of the square accordingly" do
-      @square.update_cells(
-        Cell.new(Square::START_ROW, 0),
-        Cell.new(Square::START_ROW, 1),
-        Cell.new(Square::START_ROW + 1, 0),
-        Cell.new(Square::START_ROW + 1, 1)
-      )
+      @square.update_cells [Square::START_ROW, 0]
 
       @cells[0].instance_variable_get(:@row).should eq Square::START_ROW
       @cells[1].instance_variable_get(:@row).should eq Square::START_ROW
       @cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
       @cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
-      @cells[0].instance_variable_get(:@column).should eq 0
-      @cells[1].instance_variable_get(:@column).should eq 1
-      @cells[2].instance_variable_get(:@column).should eq 0
-      @cells[3].instance_variable_get(:@column).should eq 1
+      @cells[0].instance_variable_get(:@col).should eq 0
+      @cells[1].instance_variable_get(:@col).should eq 1
+      @cells[2].instance_variable_get(:@col).should eq 0
+      @cells[3].instance_variable_get(:@col).should eq 1
     end
 
   end
@@ -55,10 +50,10 @@ describe Square do
       @cells[1].instance_variable_get(:@row).should eq Square::START_BOTTOM_ROW
       @cells[2].instance_variable_get(:@row).should eq Square::START_TOP_ROW
       @cells[3].instance_variable_get(:@row).should eq Square::START_TOP_ROW
-      @cells[0].instance_variable_get(:@column).should eq Square::START_LEFT_COL - 1
-      @cells[1].instance_variable_get(:@column).should eq Square::START_LEFT_COL
-      @cells[2].instance_variable_get(:@column).should eq Square::START_LEFT_COL - 1
-      @cells[3].instance_variable_get(:@column).should eq Square::START_LEFT_COL
+      @cells[0].instance_variable_get(:@col).should eq Square::START_LEFT_COL - 1
+      @cells[1].instance_variable_get(:@col).should eq Square::START_LEFT_COL
+      @cells[2].instance_variable_get(:@col).should eq Square::START_LEFT_COL - 1
+      @cells[3].instance_variable_get(:@col).should eq Square::START_LEFT_COL
     end
 
     it "doesn't move the square if no space available on the left" do
@@ -70,10 +65,10 @@ describe Square do
       @cells[1].instance_variable_get(:@row).should eq Square::START_BOTTOM_ROW
       @cells[2].instance_variable_get(:@row).should eq Square::START_TOP_ROW
       @cells[3].instance_variable_get(:@row).should eq Square::START_TOP_ROW
-      @cells[0].instance_variable_get(:@column).should eq 0
-      @cells[1].instance_variable_get(:@column).should eq 1
-      @cells[2].instance_variable_get(:@column).should eq 0
-      @cells[3].instance_variable_get(:@column).should eq 1
+      @cells[0].instance_variable_get(:@col).should eq 0
+      @cells[1].instance_variable_get(:@col).should eq 1
+      @cells[2].instance_variable_get(:@col).should eq 0
+      @cells[3].instance_variable_get(:@col).should eq 1
     end
 
   end

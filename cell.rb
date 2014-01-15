@@ -1,9 +1,9 @@
 class Cell
-  attr_reader :row, :column
+  attr_accessor :row, :col
 
-  def initialize(row, column, status = :empty)
+  def initialize(row, col, status = :empty)
     @row = row
-    @column = column
+    @col = col
     @status = status
   end
 

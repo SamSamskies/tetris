@@ -12,11 +12,30 @@ class Square
     ]
   end
 
-  def update_cells(cell1, cell2, cell3, cell4)
-    @cells[0] = cell1
-    @cells[1] = cell2
-    @cells[2] = cell3
-    @cells[3] = cell4
+  def update_cells(new_bottom_left_coordinates)
+    row, col = new_bottom_left_coordinates
+
+    cell1 = @cells[0]
+    cell1.row = row
+    cell1.col = col
+
+    cell2 = @cells[1]
+    cell2.row = row
+    cell2.col = col + 1
+
+    cell3 = @cells[2]
+    cell3.row = row + 1
+    cell3.col = col
+
+    cell4 = @cells[3]
+    cell4.row = row + 1
+    cell4.col = col + 1
   end
+
+  # def move_left!
+  #   return if @cell[0].column == 0
+
+  #   update_cells
+  # end
 
 end
