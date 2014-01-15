@@ -71,7 +71,7 @@ class Tetris
   def update_playfield
     @current_piece.cells.each do |cell|
       index = translate_coordinates_to_index cell.row, cell.col
-      @playfield.cells[index].status = :filled
+      @playfield.cells[index].filled = true
     end
   end
 

@@ -1,18 +1,18 @@
 class Cell
-  attr_accessor :row, :col, :status
+  attr_accessor :row, :col, :filled
 
-  def initialize(row, col, status = :empty)
+  def initialize(row, col, filled = false)
     @row = row
     @col = col
-    @status = status
+    @filled = filled
   end
 
   def is_empty?
-    @status == :empty
+    !@filled
   end
 
   def is_filled?
-    @status == :filled
+    @filled
   end
 
 end
