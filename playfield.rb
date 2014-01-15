@@ -2,6 +2,8 @@ require_relative 'cell'
 
 class Playfield
 
+  attr_reader :cells
+
   NUM_OF_CELLS = 220
   NUM_OF_COLS = 10
 
