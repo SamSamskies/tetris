@@ -1,7 +1,8 @@
 class Cell
 
-  def initialize(index, status = :empty)
-    @index = index
+  def initialize(row, column, status = :empty)
+    @row = row
+    @columne = column
     @status = status
   end
 

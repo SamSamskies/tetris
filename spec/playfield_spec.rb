@@ -18,8 +18,16 @@ describe Playfield do
 
     context "all of the cells in @cells should" do
 
-      it "have an index corresponding to it's index in the array" do
-        @cells.each_with_index.all? { |cell, index| cell.instance_variable_get(:@index) == index }.should eq true
+      it "have an rows corresponding to it's index in the array" do
+        @cells.each_with_index.all? do |cell, index|
+          cell.instance_variable_get(:@row) == (index / Playfield::NUM_OF_COLUMNS)
+        end
+      end
+
+      it "have an columns corresponding to it's index in the array" do
+        @cells.each_with_index.all? do |cell, index|
+          cell.instance_variable_get(:@column) == (index % Playfield::NUM_OF_COLUMNS)
+        end
       end
 
       it "have a status of empty" do

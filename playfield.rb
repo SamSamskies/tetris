@@ -2,12 +2,18 @@ require_relative 'cell'
 
 class Playfield
 
+  NUM_OF_CELLS = 220
+  NUM_OF_COLUMNS = 10
+
   def initialize
     @cells = create_cells
   end
 
   def create_cells
-    Array.new(220).map.with_index { |cell, index| Cell.new index }
+    Array.new(NUM_OF_CELLS).map.with_index do |cell, index|
+      row, column = index.divmod NUM_OF_COLUMNS
+      Cell.new row, column
+    end
   end
 
 end

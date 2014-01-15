@@ -8,7 +8,7 @@ describe Tetris do
 
   it "has a Playfield with correct amount of cells when created" do
     playfield = @game.instance_variable_get(:@playfield)
-    playfield.instance_variable_get(:@cells).count.should eq 220
+    playfield.instance_variable_get(:@cells).count.should eq Playfield::NUM_OF_CELLS
   end
 
   describe "#random_piece" do
