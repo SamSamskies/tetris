@@ -15,7 +15,7 @@ describe Tetris do
 
     # For now it will always be a Square
     it "returns a random piece" do
-
+      @game.random_piece.is_a? Square
     end
 
   end
