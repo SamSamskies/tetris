@@ -1,5 +1,5 @@
 class Cell
-  attr_accessor :row, :col
+  attr_accessor :row, :col, :status
 
   def initialize(row, col, status = :empty)
     @row = row
