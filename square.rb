@@ -46,4 +46,8 @@ class Square
     update_cells [@cells[0].row, @cells[0].col + 1]
   end
 
+  def drop!
+    update_cells [0, @cells[0].col]
+  end
+
 end
