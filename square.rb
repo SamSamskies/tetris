@@ -39,4 +39,11 @@ class Square
     update_cells [@cells[0].row, @cells[0].col - 1]
   end
 
+  def move_right!
+    # Do nothing if bottom right cell's column is at the right edge
+    return if @cells[1].col == Playfield::NUM_OF_COLS - 1
+
+    update_cells [@cells[0].row, @cells[0].col + 1]
+  end
+
 end
