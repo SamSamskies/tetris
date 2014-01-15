@@ -59,6 +59,19 @@ describe Tetris do
 
     end
 
+    describe "#drop!" do
+
+      it "drops the piece into place and updates Playfield accordingly" do
+        @game.drop! @piece
+        playfield_cells = @playfield.instance_variable_get(:@cells)
+        playfield[5].is_empty? should eq false
+        playfield[6].is_empty? should eq false
+        playfield[15].is_empty? should eq false
+        playfield[16].is_empty? should eq false
+      end
+
+    end
+
   end
 
 end
