@@ -1,5 +1,7 @@
 class Square
 
+  attr_reader :cells
+
   START_ROW = 21
   START_COL = 5
 
