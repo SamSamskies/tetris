@@ -8,7 +8,7 @@ describe Tetris do
   end
 
   it "has a Playfield with correct amount of cells when created" do
-    @playfield.cells.count.should eq Playfield::NUM_OF_CELLS
+    @playfield.cells.count.should eq Playfield::NUM_OF_ROWS * Playfield::NUM_OF_COLS
   end
 
   describe "#random_piece" do

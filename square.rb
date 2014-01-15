@@ -1,6 +1,6 @@
 class Square
 
-  attr_reader :cells
+  attr_reader :cells, :height, :width
 
   START_ROW = 21
   START_COL = 4
@@ -12,6 +12,8 @@ class Square
       Cell.new(START_ROW + 1, START_COL),
       Cell.new(START_ROW + 1, START_COL + 1)
     ]
+    @height = 2
+    @width = 2
   end
 
   def update_cells(new_bottom_left_coordinates)
@@ -48,8 +50,8 @@ class Square
     update_cells [@cells[0].row, @cells[0].col + 1]
   end
 
-  def drop!
-    update_cells [0, @cells[0].col]
+  def drop!(row, col)
+    update_cells [row, col]
   end
 
 end

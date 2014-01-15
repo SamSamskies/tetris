@@ -106,7 +106,7 @@ describe Square do
   describe "#drop!" do
 
     it "updates coordinates of cells accordingly when dropped" do
-      @square.drop!
+      @square.drop! 0, Square::START_COL
 
       @square.cells[0].row.should eq 0
       @square.cells[1].row.should eq 0

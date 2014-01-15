@@ -22,8 +22,21 @@ class Tetris
   end
 
   def drop!(piece)
-    piece.drop!
-    update_playfield piece
+    row = first_available_row(piece)
+    piece.drop! row, piece.cells[0].col
+    update_playfield piece unless row > (Playfield::NUM_OF_ROWS - 2)
+  end
+
+  def first_available_row(piece)
+    (Playfield::NUM_OF_ROWS - 1).downto(0) do |row|
+      0.upto(piece.width - 1) do |n|
+        index = translate_coordinates_to_index row, piece.cells[0].col + n
+        return n + piece.height unless @playfield.cells[index].is_empty?
+      end
+    end
+
+    # return 0 if no blocking row found
+    0
   end
 
   def update_playfield(piece)
