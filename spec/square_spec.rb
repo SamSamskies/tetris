@@ -104,4 +104,21 @@ describe Square do
 
   end
 
+  describe "#drop!" do
+
+    it "updates coordinates of cells accordingly when dropped" do
+      @square.drop!
+
+      @cells[0].instance_variable_get(:@row).should eq 0
+      @cells[1].instance_variable_get(:@row).should eq 0
+      @cells[2].instance_variable_get(:@row).should eq 1
+      @cells[3].instance_variable_get(:@row).should eq 1
+      @cells[0].instance_variable_get(:@col).should eq Square::START_COL
+      @cells[1].instance_variable_get(:@col).should eq Square::START_COL + 1
+      @cells[2].instance_variable_get(:@col).should eq Square::START_COL
+      @cells[3].instance_variable_get(:@col).should eq Square::START_COL + 1
+    end
+
+  end
+
 end
