@@ -18,7 +18,7 @@ describe Tetris do
     end
 
     it "should have a Playfield filled with Cell objects" do
-      @playfield_cells.all? { |cell| cell.is_a? Cell }
+      @playfield_cells.all? { |cell| cell.is_a? Cell }.should eq true
     end
 
   end
