@@ -15,7 +15,7 @@ class Tetris
   def demo_play
     while true
       rand(9).times do
-        random_move
+        make_random_move!
       end
 
       drop!
@@ -29,7 +29,7 @@ class Tetris
     puts @playfield.cells.select { |cell| cell.is_filled? }.count
   end
 
-  def random_move
+  def make_random_move!
     [true, false].shuffle.first ? move_left! : move_right!
   end
 
