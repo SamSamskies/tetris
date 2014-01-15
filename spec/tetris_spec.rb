@@ -27,6 +27,38 @@ describe Tetris do
       @piece_cells = @piece.instance_variable_get(:@cells)
     end
 
+    describe "#move_left!" do
+
+      it "moves the piece to the left" do
+        @game.move_left! @piece
+        @piece_cells[0].instance_variable_get(:@row).should eq Square::START_ROW
+        @piece_cells[1].instance_variable_get(:@row).should eq Square::START_ROW
+        @piece_cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
+        @piece_cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
+        @piece_cells[0].instance_variable_get(:@col).should eq Square::START_COL - 1
+        @piece_cells[1].instance_variable_get(:@col).should eq Square::START_COL
+        @piece_cells[2].instance_variable_get(:@col).should eq Square::START_COL - 1
+        @piece_cells[3].instance_variable_get(:@col).should eq Square::START_COL
+      end
+
+    end
+
+    describe "#move_right!" do
+
+      it "moves the piece to the right" do
+        @game.move_right! @piece
+        @piece_cells[0].instance_variable_get(:@row).should eq Square::START_ROW
+        @piece_cells[1].instance_variable_get(:@row).should eq Square::START_ROW
+        @piece_cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
+        @piece_cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
+        @piece_cells[0].instance_variable_get(:@col).should eq Square::START_COL + 1
+        @piece_cells[1].instance_variable_get(:@col).should eq Square::START_COL + 2
+        @piece_cells[2].instance_variable_get(:@col).should eq Square::START_COL + 1
+        @piece_cells[3].instance_variable_get(:@col).should eq Square::START_COL + 2
+      end
+
+    end
+
   end
 
 end

@@ -13,4 +13,12 @@ class Tetris
     Object.const_get(VALID_PIECES.shuffle.first).new
   end
 
+  def move_left!(piece)
+    piece.move_left!
+  end
+
+  def move_right!(piece)
+    piece.move_right!
+  end
+
 end
