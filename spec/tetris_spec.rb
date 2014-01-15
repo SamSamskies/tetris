@@ -66,6 +66,12 @@ describe Tetris do
         @playfield.cells[5].is_empty?.should eq false
         @playfield.cells[14].is_empty?.should eq false
         @playfield.cells[15].is_empty?.should eq false
+
+        @game.drop! @game.random_piece
+        @playfield.cells[24].is_empty?.should eq false
+        @playfield.cells[25].is_empty?.should eq false
+        @playfield.cells[34].is_empty?.should eq false
+        @playfield.cells[35].is_empty?.should eq false
       end
 
     end
