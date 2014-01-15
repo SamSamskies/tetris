@@ -73,4 +73,35 @@ describe Square do
 
   end
 
+  describe "#move_right!" do
+
+    it "moves the square to the right if space available on the right" do
+      @square.move_right!
+      @cells[0].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[1].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
+      @cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
+      @cells[0].instance_variable_get(:@col).should eq Square::START_COL + 1
+      @cells[1].instance_variable_get(:@col).should eq Square::START_COL + 2
+      @cells[2].instance_variable_get(:@col).should eq Square::START_COL + 1
+      @cells[3].instance_variable_get(:@col).should eq Square::START_COL + 2
+    end
+
+    it "doesn't move the square if no space available on the right" do
+      5.times do
+        @square.move_right!
+      end
+
+      @cells[0].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[1].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
+      @cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
+      @cells[0].instance_variable_get(:@col).should eq Playfield::NUM_OF_COLS - 2
+      @cells[1].instance_variable_get(:@col).should eq Playfield::NUM_OF_COLS - 1
+      @cells[2].instance_variable_get(:@col).should eq Playfield::NUM_OF_COLS - 2
+      @cells[3].instance_variable_get(:@col).should eq Playfield::NUM_OF_COLS - 1
+    end
+
+  end
+
 end

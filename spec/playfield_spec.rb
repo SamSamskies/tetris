@@ -20,13 +20,13 @@ describe Playfield do
 
       it "have an rows corresponding to it's index in the array" do
         @cells.each_with_index.all? do |cell, index|
-          cell.instance_variable_get(:@row) == (index / Playfield::NUM_OF_COLUMNS)
+          cell.instance_variable_get(:@row) == (index / Playfield::NUM_OF_COLS)
         end
       end
 
       it "have an columns corresponding to it's index in the array" do
         @cells.each_with_index.all? do |cell, index|
-          cell.instance_variable_get(:@column) == (index % Playfield::NUM_OF_COLUMNS)
+          cell.instance_variable_get(:@column) == (index % Playfield::NUM_OF_COLS)
         end
       end
 
