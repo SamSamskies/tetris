@@ -1,16 +1,14 @@
 class Square
 
-  START_BOTTOM_ROW = 21
-  START_TOP_ROW = 22
-  START_LEFT_COL = 5
-  START_RIGHT_COL = 6
+  START_ROW = 21
+  START_COL = 5
 
   def initialize
     @cells = [
-      Cell.new(START_BOTTOM_ROW, START_LEFT_COL),
-      Cell.new(START_BOTTOM_ROW, START_RIGHT_COL),
-      Cell.new(START_TOP_ROW, START_LEFT_COL),
-      Cell.new(START_TOP_ROW, START_RIGHT_COL)
+      Cell.new(START_ROW, START_COL),
+      Cell.new(START_ROW, START_COL + 1),
+      Cell.new(START_ROW + 1, START_COL),
+      Cell.new(START_ROW + 1, START_COL + 1)
     ]
   end
 
