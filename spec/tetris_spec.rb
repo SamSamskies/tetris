@@ -6,7 +6,7 @@ describe Tetris do
     @game = Tetris.new
   end
 
-  it "should have a Playfield with correct amount of cells when created" do
+  it "has a Playfield with correct amount of cells when created" do
     playfield = @game.instance_variable_get(:@playfield)
     playfield.instance_variable_get(:@cells).count.should eq 200
   end

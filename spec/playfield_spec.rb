@@ -12,7 +12,7 @@ describe Playfield do
       @cells = @playfield.instance_variable_get(:@cells)
     end
 
-    it "should have a @cells array filled with Cell objects" do
+    it "has a @cells array filled with Cell objects" do
       @cells.all? { |cell| cell.is_a? Cell }.should eq true
     end
 
