@@ -1,4 +1,4 @@
-require_relative '../playfield'
+require 'spec_helper'
 
 describe Playfield do
 

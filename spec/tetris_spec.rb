@@ -1,4 +1,4 @@
-require_relative '../tetris'
+require 'spec_helper'
 
 describe Tetris do
 
