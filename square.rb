@@ -3,7 +3,7 @@ class Square
   attr_reader :cells
 
   START_ROW = 21
-  START_COL = 5
+  START_COL = 4
 
   def initialize
     @cells = [
