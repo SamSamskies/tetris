@@ -32,10 +32,11 @@ class Square
     cell4.col = col + 1
   end
 
-  # def move_left!
-  #   return if @cell[0].column == 0
+  def move_left!
+    # Do nothing if first cell's column is 0
+    return if @cells[0].col == 0
 
-  #   update_cells
-  # end
+    update_cells [@cells[0].row, @cells[0].col - 1]
+  end
 
 end

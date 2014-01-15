@@ -46,14 +46,14 @@ describe Square do
 
     it "moves the square to the left if space available on the left" do
       @square.move_left!
-      @cells[0].instance_variable_get(:@row).should eq Square::START_BOTTOM_ROW
-      @cells[1].instance_variable_get(:@row).should eq Square::START_BOTTOM_ROW
-      @cells[2].instance_variable_get(:@row).should eq Square::START_TOP_ROW
-      @cells[3].instance_variable_get(:@row).should eq Square::START_TOP_ROW
-      @cells[0].instance_variable_get(:@col).should eq Square::START_LEFT_COL - 1
-      @cells[1].instance_variable_get(:@col).should eq Square::START_LEFT_COL
-      @cells[2].instance_variable_get(:@col).should eq Square::START_LEFT_COL - 1
-      @cells[3].instance_variable_get(:@col).should eq Square::START_LEFT_COL
+      @cells[0].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[1].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
+      @cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
+      @cells[0].instance_variable_get(:@col).should eq Square::START_COL - 1
+      @cells[1].instance_variable_get(:@col).should eq Square::START_COL
+      @cells[2].instance_variable_get(:@col).should eq Square::START_COL - 1
+      @cells[3].instance_variable_get(:@col).should eq Square::START_COL
     end
 
     it "doesn't move the square if no space available on the left" do
@@ -61,10 +61,10 @@ describe Square do
         @square.move_left!
       end
 
-      @cells[0].instance_variable_get(:@row).should eq Square::START_BOTTOM_ROW
-      @cells[1].instance_variable_get(:@row).should eq Square::START_BOTTOM_ROW
-      @cells[2].instance_variable_get(:@row).should eq Square::START_TOP_ROW
-      @cells[3].instance_variable_get(:@row).should eq Square::START_TOP_ROW
+      @cells[0].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[1].instance_variable_get(:@row).should eq Square::START_ROW
+      @cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
+      @cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
       @cells[0].instance_variable_get(:@col).should eq 0
       @cells[1].instance_variable_get(:@col).should eq 1
       @cells[2].instance_variable_get(:@col).should eq 0
