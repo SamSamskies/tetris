@@ -16,10 +16,11 @@ class Tetris
     while true
       rand(9).times do
         random_move
-        drop!
-        display_current_state
-        sleep 1
       end
+
+      drop!
+      display_current_state
+      sleep 1
     end
   end
 
