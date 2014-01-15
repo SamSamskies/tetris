@@ -43,6 +43,22 @@ describe Tetris do
 
     end
 
+    describe "#move_right!" do
+
+      it "moves the piece to the right" do
+        @game.move_right! @piece
+        @piece_cells[0].instance_variable_get(:@row).should eq Square::START_ROW
+        @piece_cells[1].instance_variable_get(:@row).should eq Square::START_ROW
+        @piece_cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
+        @piece_cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
+        @piece_cells[0].instance_variable_get(:@col).should eq Square::START_COL + 1
+        @piece_cells[1].instance_variable_get(:@col).should eq Square::START_COL + 2
+        @piece_cells[2].instance_variable_get(:@col).should eq Square::START_COL + 1
+        @piece_cells[3].instance_variable_get(:@col).should eq Square::START_COL + 2
+      end
+
+    end
+
   end
 
 end
