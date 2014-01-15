@@ -72,6 +72,31 @@ describe Tetris do
         @playfield.cells[25].is_empty?.should eq false
         @playfield.cells[34].is_empty?.should eq false
         @playfield.cells[35].is_empty?.should eq false
+
+        @game.drop! @game.random_piece
+        @playfield.cells[44].is_empty?.should eq false
+        @playfield.cells[45].is_empty?.should eq false
+        @playfield.cells[54].is_empty?.should eq false
+        @playfield.cells[55].is_empty?.should eq false
+      end
+
+    end
+
+    describe "#first_available_row" do
+
+      it "returns the first available row" do
+        @game.first_available_row(@piece).should eq 0
+        @game.drop! @piece
+        @game.first_available_row(@piece).should eq 2
+
+        new_piece = @game.random_piece
+
+        20.times do
+          @game.drop! new_piece
+          new_piece = @game.random_piece
+        end
+
+        @game.first_available_row(new_piece).should eq 22
       end
 
     end
