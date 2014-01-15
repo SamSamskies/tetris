@@ -1,5 +1,3 @@
-require_relative 'cell'
-
 class Playfield
 
   attr_reader :cells

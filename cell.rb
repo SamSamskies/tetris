@@ -11,4 +11,8 @@ class Cell
     @status == :empty
   end
 
+  def is_filled?
+    @status == :filled
+  end
+
 end
