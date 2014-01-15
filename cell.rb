@@ -2,7 +2,7 @@ class Cell
 
   def initialize(row, column, status = :empty)
     @row = row
-    @columne = column
+    @column = column
     @status = status
   end
 
