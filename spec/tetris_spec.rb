@@ -8,7 +8,7 @@ describe Tetris do
   end
 
   it "has a Playfield with correct amount of cells when created" do
-    @playfield.instance_variable_get(:@cells).count.should eq Playfield::NUM_OF_CELLS
+    @playfield.cells.count.should eq Playfield::NUM_OF_CELLS
   end
 
   describe "#random_piece" do
@@ -24,21 +24,20 @@ describe Tetris do
 
     before(:each) do
       @piece = @game.random_piece
-      @piece_cells = @piece.instance_variable_get(:@cells)
     end
 
     describe "#move_left!" do
 
       it "moves the piece to the left" do
         @game.move_left! @piece
-        @piece_cells[0].instance_variable_get(:@row).should eq Square::START_ROW
-        @piece_cells[1].instance_variable_get(:@row).should eq Square::START_ROW
-        @piece_cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
-        @piece_cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
-        @piece_cells[0].instance_variable_get(:@col).should eq Square::START_COL - 1
-        @piece_cells[1].instance_variable_get(:@col).should eq Square::START_COL
-        @piece_cells[2].instance_variable_get(:@col).should eq Square::START_COL - 1
-        @piece_cells[3].instance_variable_get(:@col).should eq Square::START_COL
+        @piece.cells[0].row.should eq Square::START_ROW
+        @piece.cells[1].row.should eq Square::START_ROW
+        @piece.cells[2].row.should eq Square::START_ROW + 1
+        @piece.cells[3].row.should eq Square::START_ROW + 1
+        @piece.cells[0].col.should eq Square::START_COL - 1
+        @piece.cells[1].col.should eq Square::START_COL
+        @piece.cells[2].col.should eq Square::START_COL - 1
+        @piece.cells[3].col.should eq Square::START_COL
       end
 
     end
@@ -47,14 +46,14 @@ describe Tetris do
 
       it "moves the piece to the right" do
         @game.move_right! @piece
-        @piece_cells[0].instance_variable_get(:@row).should eq Square::START_ROW
-        @piece_cells[1].instance_variable_get(:@row).should eq Square::START_ROW
-        @piece_cells[2].instance_variable_get(:@row).should eq Square::START_ROW + 1
-        @piece_cells[3].instance_variable_get(:@row).should eq Square::START_ROW + 1
-        @piece_cells[0].instance_variable_get(:@col).should eq Square::START_COL + 1
-        @piece_cells[1].instance_variable_get(:@col).should eq Square::START_COL + 2
-        @piece_cells[2].instance_variable_get(:@col).should eq Square::START_COL + 1
-        @piece_cells[3].instance_variable_get(:@col).should eq Square::START_COL + 2
+        @piece.cells[0].row.should eq Square::START_ROW
+        @piece.cells[1].row.should eq Square::START_ROW
+        @piece.cells[2].row.should eq Square::START_ROW + 1
+        @piece.cells[3].row.should eq Square::START_ROW + 1
+        @piece.cells[0].col.should eq Square::START_COL + 1
+        @piece.cells[1].col.should eq Square::START_COL + 2
+        @piece.cells[2].col.should eq Square::START_COL + 1
+        @piece.cells[3].col.should eq Square::START_COL + 2
       end
 
     end
